@@ -10,14 +10,19 @@ import UIKit
 import MobileCoreServices
 
 class ViewController: UIViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    // MARk: - Local vriables
     var cameraController:UIImagePickerController! = nil
     
+    // MARK: - IBOutlets
+    
+    // MARk: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         self.cameraController = UIImagePickerController.init()
         self.cameraController.delegate = self
     }
 
+    // MARK: - IBActions
     @IBAction func takePictureBtnClicked(_ sender: UIButton) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
             self.cameraController.sourceType = UIImagePickerController.SourceType.camera
@@ -33,6 +38,8 @@ class ViewController: UIViewController , UIImagePickerControllerDelegate, UINavi
         }
         
     }
+    
+    // MARK: - Custom methods
     func takePicture(){
         if self.cameraController.cameraCaptureMode == UIImagePickerController.CameraCaptureMode.photo {
             let alertView = UIAlertController(title: "Error", message: "동영상을 촬영해야 합니다.", preferredStyle: UIAlertController.Style.actionSheet)

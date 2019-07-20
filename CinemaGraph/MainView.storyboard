@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XX9-WW-wAB">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="aAx-OJ-Id9">
+            <objects>
+                <viewController id="XX9-WW-wAB" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B0Z-7B-3HN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kln-xB-nfP" userLabel="gifView">
+                                <rect key="frame" x="20" y="44" width="374" height="531.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AHr-dO-ygZ">
+                                <rect key="frame" x="132" y="235" width="150" height="149.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="AHr-dO-ygZ" secondAttribute="height" multiplier="1:1" id="f2G-Jw-r0e"/>
+                                </constraints>
+                                <state key="normal" title="추가"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="앨범에서 가져오기" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ks7-2h-rQ8">
+                                <rect key="frame" x="132" y="404.5" width="150" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zwt-vG-wvY" userLabel="Empty view">
+                                <rect key="frame" x="0.0" y="575.5" width="414" height="20.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gpH-Vq-XHZ" userLabel="Contents View">
+                                <rect key="frame" x="0.0" y="596" width="414" height="184"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="93p-lN-aYi" userLabel="Empty view">
+                                <rect key="frame" x="0.0" y="780" width="414" height="20.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AsZ-Gs-aQi">
+                                <rect key="frame" x="20" y="800.5" width="374" height="61.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pym-El-Rd7" userLabel="Share">
+                                        <rect key="frame" x="0.0" y="0.0" width="149.5" height="61.5"/>
+                                        <state key="normal" title="저장하기"/>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3gw-g7-QiE">
+                                        <rect key="frame" x="149.5" y="0.0" width="75" height="61.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0D-gW-klp" userLabel="Save">
+                                        <rect key="frame" x="224.5" y="0.0" width="149.5" height="61.5"/>
+                                        <state key="normal" title="새로찍기"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="M0D-gW-klp" firstAttribute="width" secondItem="AsZ-Gs-aQi" secondAttribute="width" multiplier="2:5" id="J8t-nN-r3y"/>
+                                    <constraint firstItem="Pym-El-Rd7" firstAttribute="width" secondItem="AsZ-Gs-aQi" secondAttribute="width" multiplier="2:5" id="REF-Uu-Ttj"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="AHr-dO-ygZ" firstAttribute="width" secondItem="kln-xB-nfP" secondAttribute="width" multiplier="2:5" id="3C3-be-oHM"/>
+                            <constraint firstItem="AsZ-Gs-aQi" firstAttribute="bottom" secondItem="sSy-L1-fY5" secondAttribute="bottom" id="ANw-LR-Dlv"/>
+                            <constraint firstItem="AsZ-Gs-aQi" firstAttribute="centerX" secondItem="kln-xB-nfP" secondAttribute="centerX" id="F8l-eF-701"/>
+                            <constraint firstItem="93p-lN-aYi" firstAttribute="leading" secondItem="sSy-L1-fY5" secondAttribute="leading" id="Fv9-Ub-2Pg"/>
+                            <constraint firstItem="AsZ-Gs-aQi" firstAttribute="height" secondItem="sSy-L1-fY5" secondAttribute="height" multiplier="3:40" id="OOB-a2-QQ9"/>
+                            <constraint firstItem="sSy-L1-fY5" firstAttribute="trailing" secondItem="Zwt-vG-wvY" secondAttribute="trailing" id="PUd-KV-Cgg"/>
+                            <constraint firstItem="kln-xB-nfP" firstAttribute="height" secondItem="sSy-L1-fY5" secondAttribute="height" multiplier="13:20" id="Q00-fC-AfR"/>
+                            <constraint firstItem="93p-lN-aYi" firstAttribute="trailing" secondItem="sSy-L1-fY5" secondAttribute="trailing" id="RLT-I0-7h5"/>
+                            <constraint firstItem="gpH-Vq-XHZ" firstAttribute="trailing" secondItem="sSy-L1-fY5" secondAttribute="trailing" id="RVr-Gr-zzl"/>
+                            <constraint firstItem="93p-lN-aYi" firstAttribute="height" secondItem="Zwt-vG-wvY" secondAttribute="height" id="U2d-0C-Ou4"/>
+                            <constraint firstItem="93p-lN-aYi" firstAttribute="top" secondItem="gpH-Vq-XHZ" secondAttribute="bottom" id="U5q-A5-LsI"/>
+                            <constraint firstItem="ks7-2h-rQ8" firstAttribute="height" secondItem="AHr-dO-ygZ" secondAttribute="height" multiplier="1:5" id="VNt-vB-IKJ"/>
+                            <constraint firstItem="ks7-2h-rQ8" firstAttribute="centerX" secondItem="kln-xB-nfP" secondAttribute="centerX" id="Vqe-RO-tUS"/>
+                            <constraint firstItem="ks7-2h-rQ8" firstAttribute="top" secondItem="AHr-dO-ygZ" secondAttribute="bottom" constant="20" id="XoW-jp-3VO"/>
+                            <constraint firstItem="kln-xB-nfP" firstAttribute="top" secondItem="sSy-L1-fY5" secondAttribute="top" id="YAR-Dj-5Y9"/>
+                            <constraint firstItem="AsZ-Gs-aQi" firstAttribute="width" secondItem="kln-xB-nfP" secondAttribute="width" id="YCJ-Eg-05o"/>
+                            <constraint firstItem="gpH-Vq-XHZ" firstAttribute="leading" secondItem="sSy-L1-fY5" secondAttribute="leading" id="YfA-4e-pdB"/>
+                            <constraint firstItem="kln-xB-nfP" firstAttribute="leading" secondItem="sSy-L1-fY5" secondAttribute="leading" constant="20" id="ZZa-ow-fgq"/>
+                            <constraint firstItem="AsZ-Gs-aQi" firstAttribute="top" secondItem="93p-lN-aYi" secondAttribute="bottom" id="hdr-du-z8n"/>
+                            <constraint firstItem="Zwt-vG-wvY" firstAttribute="leading" secondItem="sSy-L1-fY5" secondAttribute="leading" id="j8y-pb-4rQ"/>
+                            <constraint firstItem="gpH-Vq-XHZ" firstAttribute="height" secondItem="sSy-L1-fY5" secondAttribute="height" multiplier="9:40" id="jPf-Rx-Whj"/>
+                            <constraint firstItem="gpH-Vq-XHZ" firstAttribute="top" secondItem="Zwt-vG-wvY" secondAttribute="bottom" id="je4-H0-ndw"/>
+                            <constraint firstItem="Zwt-vG-wvY" firstAttribute="top" secondItem="kln-xB-nfP" secondAttribute="bottom" id="kjb-Gk-qGE"/>
+                            <constraint firstItem="AHr-dO-ygZ" firstAttribute="centerY" secondItem="kln-xB-nfP" secondAttribute="centerY" id="mGV-Qj-uFa"/>
+                            <constraint firstItem="AHr-dO-ygZ" firstAttribute="centerX" secondItem="kln-xB-nfP" secondAttribute="centerX" id="tW3-Fd-lqg"/>
+                            <constraint firstItem="sSy-L1-fY5" firstAttribute="trailing" secondItem="kln-xB-nfP" secondAttribute="trailing" constant="20" id="uj7-Wc-JgT"/>
+                            <constraint firstItem="ks7-2h-rQ8" firstAttribute="width" secondItem="AHr-dO-ygZ" secondAttribute="width" id="wkl-ea-j1k"/>
+                            <constraint firstItem="Zwt-vG-wvY" firstAttribute="height" secondItem="sSy-L1-fY5" secondAttribute="height" multiplier="1:40" id="y9c-1X-5Dy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="sSy-L1-fY5"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o0p-Ky-S5E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1084" y="31"/>
+        </scene>
+    </scenes>
+</document>
