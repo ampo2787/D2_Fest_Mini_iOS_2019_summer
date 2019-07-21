@@ -9,48 +9,44 @@
 import UIKit
 import MobileCoreServices
 
-<<<<<<< HEAD:CinemaGraph/Controller/StartVC.swift
-<<<<<<< HEAD:CinemaGraph/ViewController.swift
-class ViewController: UIViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    // MARk: - Local vriables
-    var cameraController:UIImagePickerController! = nil
-    
-    // MARK: - IBOutlets
-    
-    // MARk: - Life cycles
-=======
 class StartVC: UIViewController  {
+    
+    // MARK: - Variables
+    // MARK: IBOutlets
+    @IBOutlet weak var itemScrollView: UIScrollView!
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var videoButton: UIButton!
+    
+    @IBOutlet weak var loadVideoButton: UIButton!
+    @IBOutlet weak var loadViedoText: UILabel!
+    
+    @IBOutlet weak var footerStackView: UIStackView!
+    @IBOutlet weak var footerView: UIView!
+    
+    // MARK: Local Var
     var cameraController:UIImagePickerController! = nil
     
     // MARK: - Life Cycle
->>>>>>> 4e9ba6d635f2225a31d8d0a3fb6ef92db048a084:CinemaGraph/Controller/StartVC.swift
-=======
-class StartVC: UIViewController  {
-    var cameraController:UIImagePickerController! = nil
-    
-    // MARK: - Life Cycle
->>>>>>> 4e9ba6d635f2225a31d8d0a3fb6ef92db048a084:CinemaGraph/Controller/StartVC.swift
     override func viewDidLoad() {
         super.viewDidLoad()
         self.cameraController = UIImagePickerController.init()
         self.cameraController.delegate = self
+        
+        self.setSrollViewOptions()
+        self.makeButtonUI()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        self.updateButtonUI()
     }
 
-<<<<<<< HEAD:CinemaGraph/Controller/StartVC.swift
-<<<<<<< HEAD:CinemaGraph/ViewController.swift
-    // MARK: - IBActions
-=======
-=======
->>>>>>> 4e9ba6d635f2225a31d8d0a3fb6ef92db048a084:CinemaGraph/Controller/StartVC.swift
     // MARK: - Button Action
     /*
      Camera Open Only Video Mode.
      Show Alert View For No Camera Model
      */
-<<<<<<< HEAD:CinemaGraph/Controller/StartVC.swift
->>>>>>> 4e9ba6d635f2225a31d8d0a3fb6ef92db048a084:CinemaGraph/Controller/StartVC.swift
-=======
->>>>>>> 4e9ba6d635f2225a31d8d0a3fb6ef92db048a084:CinemaGraph/Controller/StartVC.swift
     @IBAction func takePictureBtnClicked(_ sender: UIButton) {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             self.cameraController.sourceType = .camera
@@ -66,28 +62,7 @@ class StartVC: UIViewController  {
         }
         
     }
-<<<<<<< HEAD:CinemaGraph/Controller/StartVC.swift
-<<<<<<< HEAD:CinemaGraph/ViewController.swift
-    
-    // MARK: - Custom methods
-    func takePicture(){
-        if self.cameraController.cameraCaptureMode == UIImagePickerController.CameraCaptureMode.photo {
-            let alertView = UIAlertController(title: "Error", message: "동영상을 촬영해야 합니다.", preferredStyle: UIAlertController.Style.actionSheet)
-            alertView.addAction(UIAlertAction(title: "OK", style: .default, handler: { (UIAlertAction) in
-                self.cameraController.cameraCaptureMode = UIImagePickerController.CameraCaptureMode.video
-            }))
-            self.present(alertView, animated: true, completion: nil)
-        }
-        else {
-            let isSuccess = self.cameraController.startVideoCapture()
-            
-            if !isSuccess {
-                self.cameraController.stopVideoCapture()
-            }
-        }
-=======
-=======
->>>>>>> 4e9ba6d635f2225a31d8d0a3fb6ef92db048a084:CinemaGraph/Controller/StartVC.swift
+
     /*
      Album Open Only Video Mode.
      */
@@ -95,10 +70,15 @@ class StartVC: UIViewController  {
         self.cameraController.sourceType = .photoLibrary
         self.cameraController.mediaTypes = [kUTTypeMovie as String]
         self.present(self.cameraController, animated: true, completion: nil)
-<<<<<<< HEAD:CinemaGraph/Controller/StartVC.swift
->>>>>>> 4e9ba6d635f2225a31d8d0a3fb6ef92db048a084:CinemaGraph/Controller/StartVC.swift
-=======
->>>>>>> 4e9ba6d635f2225a31d8d0a3fb6ef92db048a084:CinemaGraph/Controller/StartVC.swift
+    }
+    
+    @IBAction func complieButtonTouched(_ sender: UIButton) {
+        itemScrollView.isHidden = true
+        footerStackView.isHidden = true
+        
+        UIView.animate(withDuration: 1.5, delay: 1.0, options: .curveEaseIn, animations: {
+            self.footerView.isHidden = false
+        }, completion: nil)
     }
     
     // MARK: - ImagePickerDelegate
@@ -128,9 +108,52 @@ class StartVC: UIViewController  {
     }
     
     
-}
-
-extension UIViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    // MARK: - Custom Methods
+    // MARK: UI Methods
+    private func makeButtonUI() {
+        let bWidth = CGFloat(1.0)
+        let bColor = UIColor(displayP3Red: 164/255, green: 200/255, blue: 250/255, alpha: 1.0).cgColor
+        
+        saveButton.layer.borderWidth = bWidth
+        videoButton.layer.borderWidth = bWidth
+        saveButton.layer.borderColor = bColor
+        videoButton.layer.borderColor = bColor
+    }
+    
+    private func updateButtonUI() {
+        let cRadius = saveButton.frame.height/2
+        
+        saveButton.layer.cornerRadius = cRadius
+        videoButton.layer.cornerRadius = cRadius
+    }
+    
+    /*
+     앨범 가져오기 버튼과 Text를 가린다.
+     photo library 에서 video를 선택 후 호출
+     */
+    private func didLoadPhotoLibrary() {
+        loadVideoButton.isHidden = true
+        loadViedoText.isHidden = true
+    }
+    
     
 }
 
+extension StartVC : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+}
+
+extension StartVC : UIScrollViewDelegate {
+    func setSrollViewOptions() {
+        itemScrollView.delegate = self
+        itemScrollView.showsVerticalScrollIndicator = false
+        itemScrollView.showsHorizontalScrollIndicator = false
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        // Remove bounces of scroll view.
+        // If you want to bounce like only right bouce,
+        // code "itemScrollView.contentOffset.x > 0"
+        itemScrollView.bounces = false
+    }
+}
