@@ -16,6 +16,7 @@ class Convert_MovieToImage: NSObject {
         let generator = AVAssetImageGenerator(asset: asset)
         generator.appliesPreferredTrackTransform = true
         
+        
         let startTime = CMTime(seconds: 0, preferredTimescale: 60)
         let playTime = asset.duration
         

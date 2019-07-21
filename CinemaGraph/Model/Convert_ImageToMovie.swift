@@ -20,6 +20,7 @@ class Convert_ImageToMovie: NSObject {
     
     func buildVideoFromImageArray() {
         for image in 0..<5 {
+        
             selectedPhotosArray.append(UIImage(named: "\(image + 1).JPG")!) //name of the images: 1.JPG, 2.JPG, 3.JPG, 4.JPG, 5.JPG
         }
         

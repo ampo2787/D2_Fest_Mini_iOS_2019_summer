@@ -28,7 +28,7 @@
                                 </constraints>
                                 <state key="normal" image="cg-iphone-add-photo"/>
                                 <connections>
-                                    <action selector="videoSelectFromAlbumBtnClicked:" destination="XX9-WW-wAB" eventType="touchUpInside" id="1GV-3i-Jyt"/>
+                                    <action selector="videoSelectFromAlbumBtnClicked:" destination="XX9-WW-wAB" eventType="touchUpInside" id="WAV-0I-wZv"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="앨범에서 가져오기" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ks7-2h-rQ8">

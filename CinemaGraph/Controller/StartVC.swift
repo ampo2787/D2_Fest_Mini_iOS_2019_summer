@@ -10,7 +10,6 @@ import UIKit
 import MobileCoreServices
 
 class StartVC: UIViewController  {
-    
     // MARK: - Variables
     // MARK: IBOutlets
     @IBOutlet weak var itemScrollView: UIScrollView!
