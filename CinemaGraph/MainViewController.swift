@@ -15,6 +15,12 @@ class MainViewController: UIViewController{
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var videoButton: UIButton!
     
+    @IBOutlet weak var loadVideoButton: UIButton!
+    @IBOutlet weak var loadViedoText: UILabel!
+    
+    @IBOutlet weak var footerStackView: UIStackView!
+    @IBOutlet weak var footerView: UIView!
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +35,15 @@ class MainViewController: UIViewController{
         self.updateButtonUI()
     }
     
+    // MARK: - IBActions
+    @IBAction func complieButtonTouched(_ sender: UIButton) {
+        itemScrollView.isHidden = true
+        footerStackView.isHidden = true
+        
+        UIView.animate(withDuration: 1.5, delay: 1.0, options: .curveEaseIn, animations: {
+            self.footerView.isHidden = false
+        }, completion: nil)
+    }
     
     // MARK: - Custom Methods
     // MARK: UI Methods
@@ -47,6 +62,15 @@ class MainViewController: UIViewController{
     
         saveButton.layer.cornerRadius = cRadius
         videoButton.layer.cornerRadius = cRadius
+    }
+    
+    /*
+       앨범 가져오기 버튼과 Text를 가린다.
+       photo library 에서 video를 선택 후 호출
+    */
+    private func didLoadPhotoLibrary() {
+        loadVideoButton.isHidden = true
+        loadViedoText.isHidden = true
     }
 }
 

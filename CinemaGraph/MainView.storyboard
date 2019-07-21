@@ -63,6 +63,9 @@
                                                                     <constraint firstAttribute="width" secondItem="bBS-Yp-Ub9" secondAttribute="height" multiplier="1:1" id="Hee-9L-pCG"/>
                                                                 </constraints>
                                                                 <state key="normal" title="Item01" image="cg-iphone-scissors"/>
+                                                                <connections>
+                                                                    <action selector="complieButtonTouched:" destination="XX9-WW-wAB" eventType="touchUpInside" id="p0Q-xU-WDt"/>
+                                                                </connections>
                                                             </button>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S3I-yD-hpo" userLabel="Empty View">
                                                                 <rect key="frame" x="0.0" y="58" width="58" height="19.5"/>
@@ -306,6 +309,35 @@
                                 <rect key="frame" x="0.0" y="842.5" width="414" height="19.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TRW-T8-ie9" userLabel="Footer View">
+                                <rect key="frame" x="0.0" y="794.5" width="414" height="67.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eeb-As-fNa">
+                                        <rect key="frame" x="0.0" y="0.0" width="83" height="67.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="취소">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYj-eX-bJj">
+                                        <rect key="frame" x="331" y="0.0" width="83" height="67.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="적용">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="RYj-eX-bJj" secondAttribute="trailing" id="4Wa-Af-Qul"/>
+                                    <constraint firstAttribute="bottom" secondItem="RYj-eX-bJj" secondAttribute="bottom" id="JJP-aU-rdz"/>
+                                    <constraint firstItem="Eeb-As-fNa" firstAttribute="top" secondItem="TRW-T8-ie9" secondAttribute="top" id="JLU-nI-SbI"/>
+                                    <constraint firstItem="Eeb-As-fNa" firstAttribute="leading" secondItem="TRW-T8-ie9" secondAttribute="leading" id="SU7-3W-Ohe"/>
+                                    <constraint firstAttribute="bottom" secondItem="Eeb-As-fNa" secondAttribute="bottom" id="VSt-Il-pUE"/>
+                                    <constraint firstItem="Eeb-As-fNa" firstAttribute="width" secondItem="TRW-T8-ie9" secondAttribute="width" multiplier="1:5" id="ZBz-65-qQM"/>
+                                    <constraint firstItem="RYj-eX-bJj" firstAttribute="top" secondItem="TRW-T8-ie9" secondAttribute="top" id="c1P-OU-xsy"/>
+                                    <constraint firstItem="RYj-eX-bJj" firstAttribute="width" secondItem="Eeb-As-fNa" secondAttribute="width" id="ccL-zg-RaT"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -313,6 +345,7 @@
                             <constraint firstItem="mJ1-X8-oHZ" firstAttribute="width" secondItem="sSy-L1-fY5" secondAttribute="width" id="847-nm-h5G"/>
                             <constraint firstItem="mJ1-X8-oHZ" firstAttribute="centerY" secondItem="gpH-Vq-XHZ" secondAttribute="centerY" id="88G-YK-Ysp"/>
                             <constraint firstItem="ks7-2h-rQ8" firstAttribute="width" secondItem="kln-xB-nfP" secondAttribute="width" multiplier="1:2" id="8M6-CU-p8j"/>
+                            <constraint firstItem="sSy-L1-fY5" firstAttribute="bottom" secondItem="TRW-T8-ie9" secondAttribute="bottom" id="Afm-2P-wOx"/>
                             <constraint firstItem="AsZ-Gs-aQi" firstAttribute="centerX" secondItem="kln-xB-nfP" secondAttribute="centerX" id="F8l-eF-701"/>
                             <constraint firstItem="93p-lN-aYi" firstAttribute="leading" secondItem="sSy-L1-fY5" secondAttribute="leading" id="Fv9-Ub-2Pg"/>
                             <constraint firstItem="mJ1-X8-oHZ" firstAttribute="centerX" secondItem="gpH-Vq-XHZ" secondAttribute="centerX" id="IBs-49-BRm"/>
@@ -322,9 +355,11 @@
                             <constraint firstItem="mJ1-X8-oHZ" firstAttribute="height" secondItem="gpH-Vq-XHZ" secondAttribute="height" multiplier="1:2" id="QwE-rs-gzX"/>
                             <constraint firstItem="93p-lN-aYi" firstAttribute="trailing" secondItem="sSy-L1-fY5" secondAttribute="trailing" id="RLT-I0-7h5"/>
                             <constraint firstItem="gpH-Vq-XHZ" firstAttribute="trailing" secondItem="sSy-L1-fY5" secondAttribute="trailing" id="RVr-Gr-zzl"/>
+                            <constraint firstItem="TRW-T8-ie9" firstAttribute="leading" secondItem="sSy-L1-fY5" secondAttribute="leading" id="Tnd-bj-hYu"/>
                             <constraint firstItem="93p-lN-aYi" firstAttribute="top" secondItem="gpH-Vq-XHZ" secondAttribute="bottom" id="U5q-A5-LsI"/>
                             <constraint firstItem="ks7-2h-rQ8" firstAttribute="centerX" secondItem="kln-xB-nfP" secondAttribute="centerX" id="Vqe-RO-tUS"/>
                             <constraint firstItem="sSy-L1-fY5" firstAttribute="bottom" secondItem="atW-3d-DGC" secondAttribute="bottom" id="WIO-5i-jXx"/>
+                            <constraint firstItem="sSy-L1-fY5" firstAttribute="trailing" secondItem="TRW-T8-ie9" secondAttribute="trailing" id="WaW-dp-x89"/>
                             <constraint firstItem="ks7-2h-rQ8" firstAttribute="top" secondItem="AHr-dO-ygZ" secondAttribute="bottom" constant="20" id="XoW-jp-3VO"/>
                             <constraint firstItem="kln-xB-nfP" firstAttribute="top" secondItem="sSy-L1-fY5" secondAttribute="top" id="YAR-Dj-5Y9"/>
                             <constraint firstItem="AsZ-Gs-aQi" firstAttribute="width" secondItem="kln-xB-nfP" secondAttribute="width" id="YCJ-Eg-05o"/>
@@ -337,6 +372,7 @@
                             <constraint firstItem="gpH-Vq-XHZ" firstAttribute="height" secondItem="sSy-L1-fY5" secondAttribute="height" multiplier="10:40" id="jPf-Rx-Whj"/>
                             <constraint firstItem="AHr-dO-ygZ" firstAttribute="centerY" secondItem="kln-xB-nfP" secondAttribute="centerY" id="mGV-Qj-uFa"/>
                             <constraint firstItem="atW-3d-DGC" firstAttribute="leading" secondItem="sSy-L1-fY5" secondAttribute="leading" id="nGh-gS-MAm"/>
+                            <constraint firstItem="TRW-T8-ie9" firstAttribute="top" secondItem="93p-lN-aYi" secondAttribute="bottom" id="nxZ-e7-AB0"/>
                             <constraint firstItem="atW-3d-DGC" firstAttribute="height" secondItem="sSy-L1-fY5" secondAttribute="height" multiplier="1:40" id="smx-Z7-60M"/>
                             <constraint firstItem="AHr-dO-ygZ" firstAttribute="centerX" secondItem="kln-xB-nfP" secondAttribute="centerX" id="tW3-Fd-lqg"/>
                             <constraint firstItem="sSy-L1-fY5" firstAttribute="trailing" secondItem="kln-xB-nfP" secondAttribute="trailing" constant="20" id="uj7-Wc-JgT"/>
@@ -345,7 +381,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="cCV-nK-6Zo"/>
                     <connections>
-                        <outlet property="itemScrollView" destination="mJ1-X8-oHZ" id="Aur-13-Maz"/>
+                        <outlet property="footerStackView" destination="AsZ-Gs-aQi" id="2Yj-cb-Gqh"/>
+                        <outlet property="footerView" destination="TRW-T8-ie9" id="jTK-tp-Pgi"/>
+                        <outlet property="itemScrollView" destination="mJ1-X8-oHZ" id="MIH-Jo-gAA"/>
+                        <outlet property="loadVideoButton" destination="AHr-dO-ygZ" id="ofO-ET-WBn"/>
+                        <outlet property="loadViedoText" destination="ks7-2h-rQ8" id="EXB-l3-ekR"/>
                         <outlet property="saveButton" destination="Pym-El-Rd7" id="frv-qp-CbW"/>
                         <outlet property="videoButton" destination="M0D-gW-klp" id="9Na-L7-ab1"/>
                     </connections>
@@ -373,6 +413,6 @@
     </scenes>
     <resources>
         <image name="cg-iphone-add-photo" width="170.5" height="170.5"/>
-        <image name="cg-iphone-scissors" width="512" height="512"/>
+        <image name="cg-iphone-scissors" width="170.5" height="170.5"/>
     </resources>
 </document>
