@@ -9,6 +9,7 @@
 import UIKit
 import MobileCoreServices
 
+<<<<<<< HEAD:CinemaGraph/Controller/StartVC.swift
 <<<<<<< HEAD:CinemaGraph/ViewController.swift
 class ViewController: UIViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     // MARk: - Local vriables
@@ -23,20 +24,32 @@ class StartVC: UIViewController  {
     
     // MARK: - Life Cycle
 >>>>>>> 4e9ba6d635f2225a31d8d0a3fb6ef92db048a084:CinemaGraph/Controller/StartVC.swift
+=======
+class StartVC: UIViewController  {
+    var cameraController:UIImagePickerController! = nil
+    
+    // MARK: - Life Cycle
+>>>>>>> 4e9ba6d635f2225a31d8d0a3fb6ef92db048a084:CinemaGraph/Controller/StartVC.swift
     override func viewDidLoad() {
         super.viewDidLoad()
         self.cameraController = UIImagePickerController.init()
         self.cameraController.delegate = self
     }
 
+<<<<<<< HEAD:CinemaGraph/Controller/StartVC.swift
 <<<<<<< HEAD:CinemaGraph/ViewController.swift
     // MARK: - IBActions
 =======
+=======
+>>>>>>> 4e9ba6d635f2225a31d8d0a3fb6ef92db048a084:CinemaGraph/Controller/StartVC.swift
     // MARK: - Button Action
     /*
      Camera Open Only Video Mode.
      Show Alert View For No Camera Model
      */
+<<<<<<< HEAD:CinemaGraph/Controller/StartVC.swift
+>>>>>>> 4e9ba6d635f2225a31d8d0a3fb6ef92db048a084:CinemaGraph/Controller/StartVC.swift
+=======
 >>>>>>> 4e9ba6d635f2225a31d8d0a3fb6ef92db048a084:CinemaGraph/Controller/StartVC.swift
     @IBAction func takePictureBtnClicked(_ sender: UIButton) {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -53,6 +66,7 @@ class StartVC: UIViewController  {
         }
         
     }
+<<<<<<< HEAD:CinemaGraph/Controller/StartVC.swift
 <<<<<<< HEAD:CinemaGraph/ViewController.swift
     
     // MARK: - Custom methods
@@ -72,6 +86,8 @@ class StartVC: UIViewController  {
             }
         }
 =======
+=======
+>>>>>>> 4e9ba6d635f2225a31d8d0a3fb6ef92db048a084:CinemaGraph/Controller/StartVC.swift
     /*
      Album Open Only Video Mode.
      */
@@ -79,6 +95,9 @@ class StartVC: UIViewController  {
         self.cameraController.sourceType = .photoLibrary
         self.cameraController.mediaTypes = [kUTTypeMovie as String]
         self.present(self.cameraController, animated: true, completion: nil)
+<<<<<<< HEAD:CinemaGraph/Controller/StartVC.swift
+>>>>>>> 4e9ba6d635f2225a31d8d0a3fb6ef92db048a084:CinemaGraph/Controller/StartVC.swift
+=======
 >>>>>>> 4e9ba6d635f2225a31d8d0a3fb6ef92db048a084:CinemaGraph/Controller/StartVC.swift
     }
     
