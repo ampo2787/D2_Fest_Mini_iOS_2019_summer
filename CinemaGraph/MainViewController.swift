@@ -9,16 +9,45 @@
 import UIKit
 
 class MainViewController: UIViewController{
-
+    // MARK: - Variables
+    // MARK: IBOutlets
     @IBOutlet weak var itemScrollView: UIScrollView!
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var videoButton: UIButton!
     
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setSrollViewOptions()
-        // Do any additional setup after loading the view.
+        
+        self.setSrollViewOptions()
+        self.makeButtonUI()
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        self.updateButtonUI()
+    }
+    
+    
+    // MARK: - Custom Methods
+    // MARK: UI Methods
+    private func makeButtonUI() {
+        let bWidth = CGFloat(1.0)
+        let bColor = UIColor(displayP3Red: 164/255, green: 200/255, blue: 250/255, alpha: 1.0).cgColor
+        
+        saveButton.layer.borderWidth = bWidth
+        videoButton.layer.borderWidth = bWidth
+        saveButton.layer.borderColor = bColor
+        videoButton.layer.borderColor = bColor
+    }
+    
+    private func updateButtonUI() {
+        let cRadius = saveButton.frame.height/2
+    
+        saveButton.layer.cornerRadius = cRadius
+        videoButton.layer.cornerRadius = cRadius
+    }
 }
 
 extension MainViewController : UIScrollViewDelegate {
