@@ -10,7 +10,6 @@ import UIKit
 
 class PhotoSelectVC: UIViewController {
     let movieToPhotoArray:[UIImage]? = nil
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

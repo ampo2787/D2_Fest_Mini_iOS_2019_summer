@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--StartVC-->
         <scene sceneID="aAx-OJ-Id9">
             <objects>
-                <viewController id="XX9-WW-wAB" customClass="MainViewController" customModule="CinemaGraph" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XX9-WW-wAB" customClass="StartVC" customModule="CinemaGraph" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="B0Z-7B-3HN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,6 +27,9 @@
                                     <constraint firstAttribute="width" secondItem="AHr-dO-ygZ" secondAttribute="height" multiplier="1:1" id="f2G-Jw-r0e"/>
                                 </constraints>
                                 <state key="normal" image="cg-iphone-add-photo"/>
+                                <connections>
+                                    <action selector="videoSelectFromAlbumBtnClicked:" destination="XX9-WW-wAB" eventType="touchUpInside" id="WAV-0I-wZv"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="앨범에서 가져오기" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ks7-2h-rQ8">
                                 <rect key="frame" x="113.5" y="397" width="187" height="37.5"/>
@@ -280,7 +283,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AsZ-Gs-aQi" userLabel="Footer Stack">
                                 <rect key="frame" x="20" y="794.5" width="374" height="48"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pym-El-Rd7" userLabel="Share">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pym-El-Rd7">
                                         <rect key="frame" x="0.0" y="0.0" width="149.5" height="48"/>
                                         <color key="backgroundColor" red="0.64399421219999997" green="0.78408741950000005" blue="0.98041921850000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
@@ -292,12 +295,15 @@
                                         <rect key="frame" x="149.5" y="0.0" width="75" height="48"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0D-gW-klp" userLabel="Save">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0D-gW-klp">
                                         <rect key="frame" x="224.5" y="0.0" width="149.5" height="48"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <state key="normal" title="새로찍기">
                                             <color key="titleColor" red="0.64399421219999997" green="0.78408741950000005" blue="0.98041921850000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
+                                        <connections>
+                                            <action selector="takePictureBtnClicked:" destination="XX9-WW-wAB" eventType="touchUpInside" id="xts-gn-mFx"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
