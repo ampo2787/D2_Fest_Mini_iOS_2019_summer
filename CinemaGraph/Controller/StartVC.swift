@@ -44,6 +44,7 @@ class StartVC: UIViewController  {
     }
 
     // MARK: - Button Action
+    
     /*
      Camera Open Only Video Mode.
      Show Alert View For No Camera Model
@@ -79,21 +80,14 @@ class StartVC: UIViewController  {
         showFooterView()
     }
     
-    private func showFooterView() {
-        self.footerView.frame.origin.y += self.heightOfFooterView
-        UIView.animate(withDuration: 0.3) {
-            self.footerView.isHidden = false
-            self.footerView.frame.origin.y -= self.heightOfFooterView
-            self.view.layoutIfNeeded()
-        }
+    @IBAction func cancelButtonTouched(_ sender: UIButton) {
+        hideFooterView()
+        itemScrollView.isHidden = false
+        footerStackView.isHidden = false
     }
-    
-    private func hideFooterView() {
-        self.footerView.isHidden = true
-    }
-    
     
     // MARK: - ImagePickerDelegate
+    
     /*
     This Function Play After Video Capture
     If Data type is Photo, show alertView.
@@ -148,6 +142,26 @@ class StartVC: UIViewController  {
         loadViedoText.isHidden = true
     }
     
+    private func showFooterView() {
+        self.footerView.frame.origin.y += self.heightOfFooterView
+        UIView.animate(withDuration: 0.3) {
+            self.footerView.isHidden = false
+            self.footerView.frame.origin.y -= self.heightOfFooterView
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    private func hideFooterView() {
+//        UIView.animate(withDuration: 0.3, animations: {
+//            self.footerView.frame.origin.y += self.heightOfFooterView
+//            self.view.layoutIfNeeded()
+//        }) {
+//            finished in
+//            self.footerView.isHidden = true
+//            self.footerView.frame.origin.y -= self.heightOfFooterView
+//        }
+        self.footerView.isHidden = true
+    }
     
 }
 
