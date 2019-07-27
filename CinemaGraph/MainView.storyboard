@@ -324,9 +324,6 @@
                                         <state key="normal" title="취소">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <connections>
-                                            <action selector="cancelButtonTouched:" destination="XX9-WW-wAB" eventType="touchUpInside" id="aCv-jQ-mgX"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYj-eX-bJj">
                                         <rect key="frame" x="331" y="0.0" width="83" height="67.5"/>

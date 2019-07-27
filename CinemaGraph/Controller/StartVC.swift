@@ -21,7 +21,6 @@ class StartVC: UIViewController  {
     
     @IBOutlet weak var footerStackView: UIStackView!
     @IBOutlet weak var footerView: UIView!
-    var heightOfFooterView: CGFloat = 0
     
     // MARK: Local Var
     var cameraController:UIImagePickerController! = nil
@@ -40,11 +39,9 @@ class StartVC: UIViewController  {
         super.viewWillLayoutSubviews()
         
         self.updateButtonUI()
-        heightOfFooterView = footerView.frame.height
     }
 
     // MARK: - Button Action
-    
     /*
      Camera Open Only Video Mode.
      Show Alert View For No Camera Model
@@ -77,17 +74,13 @@ class StartVC: UIViewController  {
     @IBAction func complieButtonTouched(_ sender: UIButton) {
         itemScrollView.isHidden = true
         footerStackView.isHidden = true
-        showFooterView()
-    }
-    
-    @IBAction func cancelButtonTouched(_ sender: UIButton) {
-        hideFooterView()
-        itemScrollView.isHidden = false
-        footerStackView.isHidden = false
+        
+        UIView.animate(withDuration: 1.5, delay: 1.0, options: .curveEaseIn, animations: {
+            self.footerView.isHidden = false
+        }, completion: nil)
     }
     
     // MARK: - ImagePickerDelegate
-    
     /*
     This Function Play After Video Capture
     If Data type is Photo, show alertView.
@@ -154,7 +147,6 @@ class StartVC: UIViewController  {
     private func hideFooterView() {
         self.footerView.isHidden = true
     }
-    
 }
 
 extension StartVC : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
