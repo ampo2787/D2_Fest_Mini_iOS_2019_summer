@@ -21,6 +21,7 @@ class StartVC: UIViewController  {
     
     @IBOutlet weak var footerStackView: UIStackView!
     @IBOutlet weak var footerView: UIView!
+    var heightOfFooterView: CGFloat = 0
     
     // MARK: Local Var
     var cameraController:UIImagePickerController! = nil
@@ -39,9 +40,11 @@ class StartVC: UIViewController  {
         super.viewWillLayoutSubviews()
         
         self.updateButtonUI()
+        heightOfFooterView = footerView.frame.height
     }
 
     // MARK: - Button Action
+    
     /*
      Camera Open Only Video Mode.
      Show Alert View For No Camera Model
@@ -74,13 +77,17 @@ class StartVC: UIViewController  {
     @IBAction func complieButtonTouched(_ sender: UIButton) {
         itemScrollView.isHidden = true
         footerStackView.isHidden = true
-        
-        UIView.animate(withDuration: 1.5, delay: 1.0, options: .curveEaseIn, animations: {
-            self.footerView.isHidden = false
-        }, completion: nil)
+        showFooterView()
+    }
+    
+    @IBAction func cancelButtonTouched(_ sender: UIButton) {
+        hideFooterView()
+        itemScrollView.isHidden = false
+        footerStackView.isHidden = false
     }
     
     // MARK: - ImagePickerDelegate
+    
     /*
     This Function Play After Video Capture
     If Data type is Photo, show alertView.
@@ -135,6 +142,26 @@ class StartVC: UIViewController  {
         loadViedoText.isHidden = true
     }
     
+    private func showFooterView() {
+        self.footerView.frame.origin.y += self.heightOfFooterView
+        UIView.animate(withDuration: 0.3) {
+            self.footerView.isHidden = false
+            self.footerView.frame.origin.y -= self.heightOfFooterView
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    private func hideFooterView() {
+//        UIView.animate(withDuration: 0.3, animations: {
+//            self.footerView.frame.origin.y += self.heightOfFooterView
+//            self.view.layoutIfNeeded()
+//        }) {
+//            finished in
+//            self.footerView.isHidden = true
+//            self.footerView.frame.origin.y -= self.heightOfFooterView
+//        }
+        self.footerView.isHidden = true
+    }
     
 }
 
