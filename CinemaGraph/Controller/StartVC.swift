@@ -111,7 +111,7 @@ class StartVC: UIViewController  {
     // MARK: UI Methods
     private func makeButtonUI() {
         let bWidth = CGFloat(1.0)
-        let bColor = UIColor(displayP3Red: 164/255, green: 200/255, blue: 250/255, alpha: 1.0).cgColor
+        let bColor = UIColor(displayP3Red: 169/255, green: 147/255, blue: 247/255, alpha: 1.0).cgColor
         
         saveButton.layer.borderWidth = bWidth
         videoButton.layer.borderWidth = bWidth
@@ -135,7 +135,18 @@ class StartVC: UIViewController  {
         loadViedoText.isHidden = true
     }
     
+    private func showFooterView() {
+        self.footerView.frame.origin.y += self.heightOfFooterView
+        UIView.animate(withDuration: 0.3) {
+            self.footerView.isHidden = false
+            self.footerView.frame.origin.y -= self.heightOfFooterView
+            self.view.layoutIfNeeded()
+        }
+    }
     
+    private func hideFooterView() {
+        self.footerView.isHidden = true
+    }
 }
 
 extension StartVC : UIImagePickerControllerDelegate, UINavigationControllerDelegate {

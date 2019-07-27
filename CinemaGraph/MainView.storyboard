@@ -34,7 +34,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="앨범에서 가져오기" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ks7-2h-rQ8">
                                 <rect key="frame" x="113.5" y="397" width="187" height="37.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" red="0.64399421215057373" green="0.7840874195098877" blue="0.98041921854019165" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.66301518680000004" green="0.4961543679" blue="0.96867293119999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gpH-Vq-XHZ" userLabel="Contents View">
@@ -95,13 +95,13 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="XhE-lo-2fB" secondAttribute="height" multiplier="1:1" id="PUG-Dy-xzf"/>
                                                                 </constraints>
-                                                                <state key="normal" title="Item01" image="cg-iphone-scissors"/>
+                                                                <state key="normal" title="Item01" image="cg_iphone_draw_color"/>
                                                             </button>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="971-x9-0jP" userLabel="Empty View">
                                                                 <rect key="frame" x="0.0" y="58" width="58" height="19.5"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </view>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="자르기" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gR1-xm-soP">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="영역설정" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gR1-xm-soP">
                                                                 <rect key="frame" x="0.0" y="77.5" width="58" height="19"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -285,7 +285,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pym-El-Rd7">
                                         <rect key="frame" x="0.0" y="0.0" width="149.5" height="48"/>
-                                        <color key="backgroundColor" red="0.64399421219999997" green="0.78408741950000005" blue="0.98041921850000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.66301518678665161" green="0.49615436792373657" blue="0.96867293119430542" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <state key="normal" title="저장하기">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -299,7 +299,7 @@
                                         <rect key="frame" x="224.5" y="0.0" width="149.5" height="48"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <state key="normal" title="새로찍기">
-                                            <color key="titleColor" red="0.64399421219999997" green="0.78408741950000005" blue="0.98041921850000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="titleColor" red="0.66301518680000004" green="0.4961543679" blue="0.96867293119999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                         <connections>
                                             <action selector="takePictureBtnClicked:" destination="XX9-WW-wAB" eventType="touchUpInside" id="xts-gn-mFx"/>
@@ -420,5 +420,6 @@
     <resources>
         <image name="cg-iphone-add-photo" width="170.5" height="170.5"/>
         <image name="cg-iphone-scissors" width="170.5" height="170.5"/>
+        <image name="cg_iphone_draw_color" width="170.5" height="170.5"/>
     </resources>
 </document>
