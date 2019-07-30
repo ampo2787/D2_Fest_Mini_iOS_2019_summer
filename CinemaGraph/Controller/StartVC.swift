@@ -31,9 +31,6 @@ class StartVC: UIViewController  {
     var convert_movieToImage:Convert_MovieToImage! = nil
     var exportImage:[UIImage] = []
     
-    var frameExtracter:Convert_FrameExtract!
-    let imageView = UIImageView.init()
-
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,11 +39,6 @@ class StartVC: UIViewController  {
 
         convert_imageToMovie = Convert_ImageToMovie.init()
         convert_movieToImage = Convert_MovieToImage.init()
-        frameExtracter=Convert_FrameExtract()
-        
-        self.frameExtracter.delegate = self
-        self.imageView.bounds = self.gifView.bounds
-        self.gifView.addSubview(imageView)
         
         self.setSrollViewOptions()
         self.makeButtonUI()
@@ -209,12 +201,7 @@ class StartVC: UIViewController  {
     
 }
 
-extension StartVC : UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate , FrameExtractorDelegate {
-    
-    func captured(image: UIImage) {
-        self.imageView.image = image
-    }
-    
+extension StartVC : UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func setSrollViewOptions() {
         itemScrollView.delegate = self

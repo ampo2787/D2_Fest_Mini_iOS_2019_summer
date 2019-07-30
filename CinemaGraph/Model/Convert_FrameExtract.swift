@@ -75,7 +75,7 @@ class Convert_FrameExtract: NSObject, AVCaptureVideoDataOutputSampleBufferDelega
         return AVCaptureDevice.devices().filter {
             ($0 as AnyObject).hasMediaType(AVMediaType.video) &&
                 ($0 as AnyObject).position == position
-            }.first as? AVCaptureDevice
+            }.first
     }
     
     // MARK: Sample buffer to UIImage conversion
