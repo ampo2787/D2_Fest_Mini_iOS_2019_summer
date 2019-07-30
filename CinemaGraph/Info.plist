@@ -6,6 +6,8 @@
 	<string>마이크에 접근하려 합니다.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>앨범에 접근하려 합니다.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>앨범에 저장하려 합니다.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>카메라에 접근하려 합니다.</string>
 	<key>CFBundleDevelopmentRegion</key>

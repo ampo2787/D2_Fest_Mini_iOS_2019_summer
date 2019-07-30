@@ -9,27 +9,25 @@
 import UIKit
 import AVFoundation
 import Foundation
+import Photos
+
 
 class Convert_ImageToMovie: NSObject {
     let outputSize = CGSize(width: 1920, height: 1280)
-    let imagesPerSecond: TimeInterval = 3 //each image will be stay for 3 secs
+    let imagesPerSecond: TimeInterval = 1 //each image will be stay for 3 secs
     var selectedPhotosArray = [UIImage]()
     var imageArrayToVideoURL = NSURL()
     let audioIsEnabled: Bool = false //if your video has no sound
     var asset: AVAsset!
     
     func buildVideoFromImageArray() {
-        for image in 0..<5 {
-        
-            selectedPhotosArray.append(UIImage(named: "\(image + 1).JPG")!) //name of the images: 1.JPG, 2.JPG, 3.JPG, 4.JPG, 5.JPG
-        }
         
         imageArrayToVideoURL = NSURL(fileURLWithPath: NSHomeDirectory() + "/Documents/video1.MP4")
         removeFileAtURLIfExists(url: imageArrayToVideoURL)
         guard let videoWriter = try? AVAssetWriter(outputURL: imageArrayToVideoURL as URL, fileType: AVFileType.mp4) else {
             fatalError("AVAssetWriter error")
         }
-        let outputSettings = [AVVideoCodecKey : AVVideoCodecH264, AVVideoWidthKey : NSNumber(value: Float(outputSize.width)), AVVideoHeightKey : NSNumber(value: Float(outputSize.height))] as [String : Any]
+        let outputSettings = [AVVideoCodecKey : AVVideoCodecType.h264, AVVideoWidthKey : NSNumber(value: Float(outputSize.width)), AVVideoHeightKey : NSNumber(value: Float(outputSize.height))] as [String : Any]
         guard videoWriter.canApply(outputSettings: outputSettings, forMediaType: AVMediaType.video) else {
             fatalError("Negative : Can't apply the Output settings...")
         }
@@ -90,6 +88,20 @@ class Convert_ImageToMovie: NSObject {
                     print("-----video1 url = \(self.imageArrayToVideoURL)")
                     
                     self.asset = AVAsset(url: self.imageArrayToVideoURL as URL)
+                    
+                    PHPhotoLibrary.shared().performChanges({
+                        PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: self.imageArrayToVideoURL as URL)
+                    }) { saved, error in
+                        if saved {
+                            print("saved")
+                            /*
+                            let alertController = UIAlertController(title: "Your video was successfully saved", message: nil, preferredStyle: .alert)
+                            let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                            alertController.addAction(defaultAction)
+                            self.present(alertController, animated: true, completion: nil)
+                            */
+                        }
+                    }
                 }
             })
         }

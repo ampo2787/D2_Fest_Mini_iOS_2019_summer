@@ -392,6 +392,7 @@
                     <connections>
                         <outlet property="footerStackView" destination="AsZ-Gs-aQi" id="2Yj-cb-Gqh"/>
                         <outlet property="footerView" destination="TRW-T8-ie9" id="jTK-tp-Pgi"/>
+                        <outlet property="gifView" destination="kln-xB-nfP" id="TQh-II-ee8"/>
                         <outlet property="itemScrollView" destination="mJ1-X8-oHZ" id="MIH-Jo-gAA"/>
                         <outlet property="loadVideoButton" destination="AHr-dO-ygZ" id="ofO-ET-WBn"/>
                         <outlet property="loadViedoText" destination="ks7-2h-rQ8" id="EXB-l3-ekR"/>

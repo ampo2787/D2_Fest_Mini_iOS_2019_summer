@@ -8,6 +8,7 @@
 
 import UIKit
 import MobileCoreServices
+import AVKit
 
 class StartVC: UIViewController  {
     // MARK: - Variables
@@ -15,6 +16,7 @@ class StartVC: UIViewController  {
     @IBOutlet weak var itemScrollView: UIScrollView!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var videoButton: UIButton!
+    @IBOutlet weak var gifView: UIView!
     
     @IBOutlet weak var loadVideoButton: UIButton!
     @IBOutlet weak var loadViedoText: UILabel!
@@ -25,12 +27,26 @@ class StartVC: UIViewController  {
     
     // MARK: Local Var
     var cameraController:UIImagePickerController! = nil
+    var convert_imageToMovie:Convert_ImageToMovie! = nil
+    var convert_movieToImage:Convert_MovieToImage! = nil
+    var exportImage:[UIImage] = []
     
+    var frameExtracter:Convert_FrameExtract!
+    let imageView = UIImageView.init()
+
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.cameraController = UIImagePickerController.init()
         self.cameraController.delegate = self
+
+        convert_imageToMovie = Convert_ImageToMovie.init()
+        convert_movieToImage = Convert_MovieToImage.init()
+        frameExtracter=Convert_FrameExtract()
+        
+        self.frameExtracter.delegate = self
+        self.imageView.bounds = self.gifView.bounds
+        self.gifView.addSubview(imageView)
         
         self.setSrollViewOptions()
         self.makeButtonUI()
@@ -102,16 +118,52 @@ class StartVC: UIViewController  {
             }
             else {
                 if let videoURL = info[UIImagePickerController.InfoKey.mediaURL] as? URL {
-                    UserDefaults.standard.set(videoURL, forKey: "Selected_Video")
-                    UserDefaults.standard.synchronize()
+                    self.loadViedoText.isHidden = true
+                    self.loadVideoButton.isHidden = true
                     
-                    //This code is save Video to album.
-                    //UISaveVideoAtPathToSavedPhotosAlbum(videoURL.relativePath, nil, nil, nil)
+                    //gifView.addsubLayer for video play
+                    let player = AVPlayer(url: videoURL)
+                    let playerLayer = AVPlayerLayer(player: player)
+                    playerLayer.frame = self.gifView.bounds
+                    self.gifView.layer.addSublayer(playerLayer)
+                    
+                    player.play()
+                    
+                    /*
+                     This code is for video loop
+                    */
+                    NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player.currentItem, queue: .main) { _ in
+                        player.seek(to: CMTime.zero)
+                        player.play()
+                    }
+                    
+                    /*
+                     This code is for asyncronous Get Frame
+                     */
+                    /*
+                    DispatchQueue.global().async {
+                        self.convert_movieToImage.getAllFrames(videoUrl: videoURL)
+                        self.exportImage = self.convert_movieToImage.frames
+                        
+                        //memory issue fix
+                        self.convert_movieToImage.frames = []
+                        
+                        DispatchQueue.init(label: "movie save").async {
+                            self.convert_imageToMovie.selectedPhotosArray = self.exportImage
+                            
+                            self.exportImage = []
+                            self.convert_imageToMovie.buildVideoFromImageArray()
+                            
+                            print(self.convert_imageToMovie.imageArrayToVideoURL)
+                        }
+                    }
+                    */
                 }
             }
             dismiss(animated: true, completion: nil)
         }
     }
+    
     
     
     // MARK: - Custom Methods
@@ -157,11 +209,13 @@ class StartVC: UIViewController  {
     
 }
 
-extension StartVC : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension StartVC : UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate , FrameExtractorDelegate {
     
-}
-
-extension StartVC : UIScrollViewDelegate {
+    func captured(image: UIImage) {
+        self.imageView.image = image
+    }
+    
+    
     func setSrollViewOptions() {
         itemScrollView.delegate = self
         itemScrollView.showsVerticalScrollIndicator = false

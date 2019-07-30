@@ -11,20 +11,44 @@ import AVFoundation
 
 class Convert_MovieToImage: NSObject {
     // MARK: - User Function
-    func videoToImageArray(url:URL) -> UIImage?{
-        let asset = AVURLAsset(url: url)
-        let generator = AVAssetImageGenerator(asset: asset)
-        generator.appliesPreferredTrackTransform = true
+    var frames:[UIImage] = []
+    private var generator:AVAssetImageGenerator!
+    
+    func getAllFrames(videoUrl:URL) {
+        let asset:AVAsset = AVAsset(url:videoUrl)
+        let duration:Float64 = CMTimeGetSeconds(asset.duration)
         
+        let frameRate:Float? = asset.tracks.last?.nominalFrameRate
         
-        let startTime = CMTime(seconds: 0, preferredTimescale: 60)
-        let playTime = asset.duration
+        self.generator = AVAssetImageGenerator(asset:asset)
+        self.generator.appliesPreferredTrackTransform = true
+        self.frames = []
         
-        if let cgImage = try? generator.copyCGImage(at: CMTime(seconds: 2, preferredTimescale: 60), actualTime: nil) {
-            return UIImage(cgImage: cgImage)
+        //get All Frame From video FrameRate
+        for index:Int in 1 ..< Int(duration) {
+            self.getFrame(fromTime:Float64(index))
+            /*
+            for frameIndex:Int in 1..<Int(frameRate!) {
+                    let floatIndex = Float(index)
+                    let floatFrameIndex = Float(frameIndex)
+                
+                    let thisIndex = ((floatIndex/frameRate!) * floatFrameIndex)
+                    self.getFrame(fromTime:Float64(thisIndex))
+                
+            }
+ */
         }
-        else {
-            return nil
+        self.generator = nil
+    }
+    
+    private func getFrame(fromTime:Float64) {
+        let time:CMTime = CMTimeMakeWithSeconds(fromTime, preferredTimescale:600)
+        let image:CGImage
+        do {
+            try image = self.generator.copyCGImage(at:time, actualTime:nil)
+        } catch {
+            return
         }
+        self.frames.append(UIImage(cgImage:image))
     }
 }
